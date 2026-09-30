@@ -1,0 +1,22 @@
+# This project is implemented with the Python standard library ONLY
+# (json, re, math, random, dataclasses, unittest). No third-party packages
+# are required to build the index, run queries, or run the tests.
+#
+# Why: this demo was built in an environment with severe local disk-space
+# constraints, which made installing numpy/scikit-learn/langchain/pytest
+# unreliable. Rather than depend on packages that might not install, the
+# TF-IDF vectorizer, cosine-similarity search, and vector store were
+# implemented by hand in rag/embeddings.py -- a small, real, auditable
+# implementation of the same math those libraries would provide.
+#
+# Optional upgrades if you have disk space / want closer parity with the
+# resume bullet's stack (none of these are required to run this repo):
+#   scikit-learn      # drop-in replacement for rag/embeddings.py's TF-IDF
+#   numpy              # vectorized similarity math
+#   langchain           # higher-level RAG orchestration / document loaders
+#   faiss-cpu            # approximate nearest-neighbor vector index at scale
+#   anthropic             # official Claude API SDK -- see rag/answer.py for
+#                          # the exact, clearly-marked (and disabled) spot
+#                          # where a live Claude API call would plug in
+#   pytest                 # to run tests via `pytest tests/` instead of
+#                           # `python3 -m unittest`
